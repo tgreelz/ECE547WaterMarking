@@ -5,19 +5,20 @@ import { TextField } from '@mui/material';
 import axios from "axios";
 import UploadImage from './UploadImage';
 
+// const baseURL = "https://watermarkapi.azurewebsites.net";
 const baseURL = "http://localhost:8000";
 
 function App() {
   const [post, setPost] = React.useState(null);
 
-  // React.useEffect(() => {
-  //   axios.get(baseURL).then((response) => {
-  //     console.log(response);
-  //     setPost(response.data);
-  //   });
-  // }, []);
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      console.log(response);
+      setPost(response.data);
+    });
+  }, []);
 
-  // if (!post) return null;
+  if (!post) return null;
 
   return (
     <div className="App">
